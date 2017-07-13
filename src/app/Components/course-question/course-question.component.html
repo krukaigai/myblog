@@ -1,0 +1,208 @@
+<div class="col-md-12 col-xs-12" style="margin-top: 7%;">
+  <div class="col-md-12 col-xs-12 text-center">
+    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#before">เพิ่มข้อสอบก่อนเรียน</button>
+    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#after">เพิ่มข้อสอบหลังเรียน</button>
+  </div>
+  <div class="col-md-12 col-xs-12 text-center">
+    <div class="col-md-6 col-xs-12">
+      <h2>ลิสข้อสอบก่อนเรียน</h2>
+      <div class="col-md-12 col-xs-12" *ngFor="let before of listBeforQuestions | async">
+        <div class="col-md-12 col-xs-12">
+          {{before.DetailQuestion}}
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <h2>ลิสข้อสอบหลังเรียน</h2>
+      <div class="col-md-12 col-xs-12" *ngFor="let before of listAfterQuestions | async">
+        <div class="col-md-12 col-xs-12">
+          {{before.DetailQuestion}}
+        </div>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="before" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">เพิ่มข้อสอบก่อนเรียน</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              คำถาม
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <textarea [(ngModel)]="beforeDetailQuestion" 
+                      class="form-control" 
+                      rows="5"
+                      style="margin-left:12px;width:80%">
+                      </textarea>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 1
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="beforeAns1">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 2
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="beforeAns2">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 3
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="beforeAns3">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 4
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="beforeAns4">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ถูกต้อง
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="beforeAnsCorrect">
+          </div>
+        </div>
+        <button class="btn btn-info btn-lg" (click)="addBeforeQuestion()">เพิ่มข้อสอบก่อนเรียน</button>
+        {{beforeAdded}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="after" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">เพิ่มข้อสอบหลังเรียน</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              คำถาม
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <textarea [(ngModel)]="afterDetailQuestion" 
+                      class="form-control" 
+                      rows="5"
+                      style="margin-left:12px;width:80%">
+                      </textarea>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 1
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="afterAns1">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 2
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="afterAns2">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 3
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="afterAns3">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ 4
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="afterAns4">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ข้อที่ถูกต้อง
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   [(ngModel)]="afterAnsCorrect">
+          </div>
+        </div>
+        <button class="btn btn-info btn-lg" (click)="addAfterQuestion()">เพิ่มข้อสอบหลังเรียน</button>
+        {{afterAdded}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

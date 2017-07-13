@@ -1,0 +1,42 @@
+<br><br>
+<div class="col-md-12 col-xs-12 BG" >
+  <div class="form-horizontal content" style="margin-top:5%;">
+    <a routerLink="/addQuestion"><button class="btn btn-sucess btn-lg" style="margin-left: 40%">เพิ่มข้อสอบ</button></a>
+    <br><br>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              ชื่อคอสเรียน
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <input type="text" 
+                   class="form-control"
+                   style="margin-left:12px;width:80%" 
+                   placeholder="ชื่อคอสเรียน"
+                   [(ngModel)]="Topic">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="email">
+              คำอธิบาย
+              <font style="color:#ff0000 ;font-size: 17px">*</font>
+              </label>
+          <div class="col-sm-9">
+            <textarea [(ngModel)]="Description" 
+                      class="form-control" 
+                      rows="5"
+                      style="margin-left:12px;width:80%"
+                      placeholder="คำอธิบาย" >
+                      </textarea>
+          </div>
+        </div>
+          <div class="col-md-12 col-xs-12">
+            <ckeditor
+             [(ngModel)]="content"
+             [readonly]="false">
+            </ckeditor>
+          </div>
+          <button class="btn btn-info btn-lg" style="margin-top: 20px;margin-left:90%;" (click)="editCourse()">แก้ไข</button>
+          <br><br>
+      </div>
+</div>

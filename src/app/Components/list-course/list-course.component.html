@@ -1,0 +1,18 @@
+<div class="col-md-12 col-xs-12 BG" >
+  <div style="margin-top: 10%" *ngFor="let course of listCourse | async">
+   <a [routerLink]="['/courseContent', course.Key]">
+   <div class="col-sm-6 col-md-4 text-center w3-animate-right">
+    <div class="thumbnail">
+      <img [src]="course.Image" alt="...">
+      <div class="caption">
+        <h3>{{course.Topic}}</h3>
+        <p>{{course.Description}}</p>
+        <p></p>
+      </div>
+     </div>
+    </div>
+   </a>
+   
+  </div>
+   
+</div>
